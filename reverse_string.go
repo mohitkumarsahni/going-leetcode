@@ -2,25 +2,25 @@ package main
 
 import "fmt"
 
-func reverseInt(x int) int {
-	var temp int = 0
+func reverseString(s []byte) {
+	pointer1 := 0
+	pointer2 := len(s)-1
 
-	if x > 2147483647 || x < -2147483648 {
-		return 0
+	for pointer1 < pointer2 {
+
+		s[pointer1], s[pointer2] = s[pointer2], s[pointer1]
+
+		pointer1++
+		pointer2--
 	}
-	for x!=0 {
-		temp = (temp*10) + (x%10)
-		if temp > 2147483647 || temp < -2147483648{
-			return 0
-		}
-		x = x/10
-	}
-	return temp
+	return
 }
 
-func main()  {
-	var x int = -214748367
+func main() {
+	slice := []byte{'H','a','n','n','a','h'}
 
-	fmt.Println("Reversing the Number: ",x)
-	fmt.Println(reverseInt(x))
+	fmt.Println(slice)
+	fmt.Println("Reversing the Array: ")
+	reverseString(slice)
+	fmt.Println(slice)
 }
